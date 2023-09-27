@@ -1,2 +1,2 @@
 #!/bin/bash
-chmod --recursive ugo+x .
+chmod --recursive ugo+X .
