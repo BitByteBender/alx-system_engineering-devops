@@ -1,0 +1,2 @@
+#!/bin/bash
+find /etc/passwd -type f -exec grep -w --count 'bin' {} +
