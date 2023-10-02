@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -d .*/ | grep --count ^\.
+ls -d .*/ | wc -l
