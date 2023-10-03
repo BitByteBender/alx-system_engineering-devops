@@ -1,0 +1,2 @@
+#!/bin/bash
+grep -v -w 't' quote | tr 'Ever is nag' 'te%sla@isntThatGood'
