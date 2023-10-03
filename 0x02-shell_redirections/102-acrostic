@@ -1,0 +1,2 @@
+#!/bin/bash
+find "An Acrostic" -type f -printf "%f\r"| head --silent "An Acrostic" | cut --characters=1 | tr --delete '\n'
