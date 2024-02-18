@@ -4,4 +4,4 @@
 ## 2- Connect to sandbox through sftp username@hostname
 ## 3- used put path/to/screenshot.png
 * path-ex: /home/myusername/Pictures/0-first_9_tasks.png
-## 4- got back to sandbox and pushed them to github
+## 4- reconnected via SSH and pushed them to github
