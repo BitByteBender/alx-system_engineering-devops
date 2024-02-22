@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# This script is displaying list of files in current directory
+
+arr=$(ls)
+for i in $arr; do
+	echo "$i" | cut -d '-' -f2
+done
