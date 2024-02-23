@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This script stops To infinity and beyond indefinitely proc
+
+pkill -f 4-to_infinity_and_beyond
