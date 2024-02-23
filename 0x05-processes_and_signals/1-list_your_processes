@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This script displays a list of current running procs
+
+ps aux --forest
