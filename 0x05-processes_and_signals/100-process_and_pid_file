@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+# This script:
+# creates file /var/run/myscript.pid
+# displays To infinity and beyond indefinitely
+# displays I hate the kill command
+# displays Y U no love me?!
+# deletes file /var/run/myscript.pid
+
+trigger_sigquit() {
+	rm /var/run/myscript.pid
+	exit
+}
+
+trigger_sigint() {
+	echo "Y U no love me?!"
+	exit 0
+}
+
+trigger_sigterm() {
+	echo "I hate the kill command"
+	exit 0
+}
+
+trap "trigger_sigint" SIGINT
+trap "trigger_sigquit" SIGQUIT
+
+echo "$$" > /var/run/myscrippt.pid
+
+while "true"; do
+	echo "To infinity and beyond"
+	sleep 2
+	trap "trigger_sigterm && trigger_sigquit" SIGTERM
+done
