@@ -6,7 +6,8 @@
 # displays Y U no love me?!
 # deletes file /var/run/myscript.pid
 
-trigger_sigquit() {
+trigger_sig_quit_term() {
+	echo "I hate the kill command"
 	rm /var/run/myscript.pid
 	exit
 }
@@ -16,18 +17,12 @@ trigger_sigint() {
 	exit 0
 }
 
-trigger_sigterm() {
-	echo "I hate the kill command"
-	exit 0
-}
-
+trap "trigger_sig_quit_term" SIGTERM SIGQUIT
 trap "trigger_sigint" SIGINT
-trap "trigger_sigquit" SIGQUIT
 
 echo "$$" > /var/run/myscrippt.pid
 
 while "true"; do
 	echo "To infinity and beyond"
 	sleep 2
-	trap "trigger_sigterm && trigger_sigquit" SIGTERM
 done
