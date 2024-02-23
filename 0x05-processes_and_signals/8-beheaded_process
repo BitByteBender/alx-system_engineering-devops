@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This script kills  proc 7-highlander
+
+pkill -9 "7-highlander"
