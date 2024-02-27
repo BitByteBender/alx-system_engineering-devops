@@ -2,6 +2,6 @@
 
 inputStr = ARGV[0]
 
-regexPtrn = /School+/
+regexPtrn = /hbt{2,5}n/
 
 puts inputStr.scan(regexPtrn).join
