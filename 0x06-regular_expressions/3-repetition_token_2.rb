@@ -2,6 +2,6 @@
 
 inputStr = ARGV[0]
 
-regexPtrn = /hbt{1,4}n/
+regexPtrn = /hbt+n/
 
 puts inputStr.scan(regexPtrn).join
