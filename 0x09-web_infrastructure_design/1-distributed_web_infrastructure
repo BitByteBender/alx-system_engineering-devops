@@ -1,1 +1,55 @@
+# Distributed web infrastructure (design):
 https://imgur.com/a/TJ4w212
+
+# Users(Client-side):
+They access the website through their web browsers.
+
+# Load Balancer(HAproxy):
+This acts like a traffic director, distributing incoming user requests evenly across two web servers (Server Side #1 and #2) running Nginx software.
+
+# Distribution Algorithm:
+Round Robin is a common algorithm used here.
+It distributes requests in a sequential manner, for example, sending request 1 to Server Side #1, request 2 to Server Side #2, and so on.
+This ensures both servers share the workload and website traffic is balanced.
+
+# Web Servers (Nginx):
+These servers receive requests from the load balancer, retrieve the necessary content (web pages, images, etc.), and deliver it back to the user's browser.
+
+# Application Server:
+This server, potentially located on Server Side #1 or #2, processes website logic written in a programming language like PHP/Python/Perl.
+It might also interact with the database to retrieve information or store data.
+
+#Application Files:
+The website's codebase resides on one of these servers (potentially distributed across all three).
+
+# Database (MySQL):
+This stores website data like user information or product details.
+
+# Primary-Replica (Master-Slave) Cluster:
+This introduces redundancy for the database.
+
+# Primary Node (Master):
+This is the main database server that receives all write requests (adding, updating, deleting data).
+
+# Replica Node (Slave):
+This server gets a copy of all data changes from the master and acts as a backup. It can handle read requests (retrieving data) but not directly write requests.
+
+# Benefits of this Design:
+-> Reduced SPOF:
+If one web server fails, the load balancer can still direct traffic to the other server, minimizing downtime for the website.
+
+-> Scalability:
+If traffic increases, more web servers can be added behind the load balancer to handle the additional load.
+
+-> Improved Performance:
+Distributing traffic across multiple servers can make the website more responsive for users.
+
+# Issues to Consider:
+-> SPOFs still exist:
+The load balancer and the database primary node are still single points of failure. If they fail, the website could be unavailable.
+
+-> Security Concerns:
+This design lacks a firewall to filter incoming traffic and might not use HTTPS for encrypted communication, making it vulnerable to security threats.
+No Monitoring: The design doesn't show any monitoring tools to track server status, application performance, or potential issues.
+
+-> Overall, this three-server architecture provides a more robust and scalable foundation for www.foobar.com compared to a single-server setup. 

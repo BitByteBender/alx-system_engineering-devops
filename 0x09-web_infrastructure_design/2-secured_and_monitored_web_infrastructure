@@ -1,1 +1,22 @@
+# Secured and monitored web infrastructure (design):
 https://imgur.com/DLl1nTY
+
+# Server 1:
+-> Web server (Nginx): handles incoming HTTP reqs, serves ws content.
+-> App server: runs base code(website code).
+-> Database (MySQL #Primary): Stores wsebsite data.
+
+# Server 2:
+-> Load Balancer SSL Termination): forwards traffic to active servers.
+
+# Server 3:
+-> Database (MySQL Replica): Stays ready to take over if the main db fails.
+
+# Benefits:
+-> Active-Active: S1 and S2 are active, while s3 is on standby(serves as a backup).
+-> Passive Backup (S3): Acts as a backup for main db.
+
+# Issues:
+-> SSL Termination at load balancer: Eventhough it is efficient, it exposes decrypted traffic internally.
+-> Single MySQLServer for Writes: Risk of failure, partially mitigated by Server3.
+-> Uniform Server Components: Increases vulnerability to widesoread attacks.
