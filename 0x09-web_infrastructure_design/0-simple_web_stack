@@ -1,1 +1,28 @@
+# simple web infrastructure design (using whiteboard):
 https://imgur.com/g3Pnuaf
+
+# What is a server?
+A device responsible for hosting and serving the web app, in our case it has an IP addr 8.8.8.8 and a port 80
+
+# What is the role of domain name?
+website address on the internet in ourcase we using (www.foobar.com)
+
+# What type of DNS record www is in www.foobar.com?
+The A record for domain name mapped to the server's IP address.
+
+# What is the role of the web server?
+Handles incoming HTTP reqs to the app server.
+
+# What is the role of the application server?
+code execution, req processing and database interactions.
+
+# What is the role of the database?
+Storing and managing data.
+
+# What does "SPOF" stands for?
+Single Point Of Failure
+
+Issues:
+SPOF: If the server goes down, website will go down as well.
+Downtime During Maintenance (DDM): To update the website we need to take down the system temporarily.
+Limited Scalability: If website gets too much traffic, with a single server it won't be able to handle that much inc traffic.
